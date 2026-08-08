@@ -1,7 +1,9 @@
 name: otel_amqp
 description: >-
-  OpenTelemetry instrumentation for package:dart_amqp. Wraps AMQP (RabbitMQ) publishes and consumer messages in PRODUCER/CONSUMER spans following OTel stable messaging semantic conventions (messaging.system=rabbitmq, messaging.destination.name, messaging.operation.type).
-version: 0.1.0-beta.1-wip
+  OpenTelemetry instrumentation for package:dart_amqp. Wraps AMQP (RabbitMQ)
+  publishes and consumer messages in PRODUCER/CONSUMER spans following OTel
+  messaging semconv.
+version: 0.1.0-wip
 repository: https://github.com/dartastic/otel_amqp
 homepage: https://dartastic.io
 
@@ -10,8 +12,8 @@ environment:
 
 dependencies:
   dart_amqp: ^0.3.1
-  dartastic_opentelemetry: ^1.1.0-beta.5
-  dartastic_opentelemetry_api: ^1.0.0-beta.6
+  dartastic_opentelemetry: ^1.1.0-beta.12
+  dartastic_opentelemetry_api: ^1.0.0-rc.1
 
 dev_dependencies:
   dart_flutter_team_lints: ^3.5.2

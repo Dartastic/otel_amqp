@@ -35,16 +35,15 @@ Attributes _attrs({
       if (routingKey != null) _rabbitRoutingKey: routingKey,
       if (bodySize != null) _messageBodySize: bodySize,
       if (deliveryTag != null) _rabbitDeliveryTag: deliveryTag,
-      if (serverAddress != null)
-        ServerResource.serverAddress.key: serverAddress,
-      if (serverPort != null) ServerResource.serverPort.key: serverPort,
+      if (serverAddress != null) Server.serverAddress.key: serverAddress,
+      if (serverPort != null) Server.serverPort.key: serverPort,
     });
 
 void _recordError(Span span, Object e, StackTrace st) {
   span.addAttributes(
     OTel.attributes([
       OTel.attributeString(
-        ErrorResource.errorType.key,
+        ErrorAttributes.errorType.key,
         e.runtimeType.toString(),
       ),
     ]),
