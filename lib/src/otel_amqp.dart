@@ -2,7 +2,7 @@
 // Copyright 2025, Mindful Software LLC, All rights reserved.
 
 import 'package:dart_amqp/dart_amqp.dart' as a;
-import 'package:dartastic_opentelemetry/dartastic_opentelemetry.dart';
+import 'package:dartastic_opentelemetry_api/dartastic_opentelemetry_api.dart';
 
 import 'otel_amqp_suppression.dart';
 
@@ -17,7 +17,7 @@ const _messageBodySize = 'messaging.message.body.size';
 const _rabbitRoutingKey = 'messaging.rabbitmq.destination.routing_key';
 const _rabbitDeliveryTag = 'messaging.rabbitmq.message.delivery_tag';
 
-Tracer _tracer() => OTel.tracerProvider().getTracer(_tracerName);
+APITracer _tracer() => OTelAPI.tracerProvider().getTracer(_tracerName);
 
 Attributes _attrs({
   required String operationType,
@@ -28,7 +28,7 @@ Attributes _attrs({
   String? serverAddress,
   int? serverPort,
 }) =>
-    OTel.attributesFromMap(<String, Object>{
+    OTelAPI.attributesFromMap(<String, Object>{
       Messaging.messagingSystem.key: _system,
       _operationType: operationType,
       if (destinationName != null) _destinationName: destinationName,
@@ -39,10 +39,10 @@ Attributes _attrs({
       if (serverPort != null) Server.serverPort.key: serverPort,
     });
 
-void _recordError(Span span, Object e, StackTrace st) {
+void _recordError(APISpan span, Object e, StackTrace st) {
   span.addAttributes(
-    OTel.attributes([
-      OTel.attributeString(
+    OTelAPI.attributes([
+      OTelAPI.attributeString(
         ErrorAttributes.errorType.key,
         e.runtimeType.toString(),
       ),
