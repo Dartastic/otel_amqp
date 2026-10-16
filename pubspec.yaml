@@ -1,8 +1,7 @@
 name: otel_amqp
 description: >-
-  OpenTelemetry instrumentation for package:dart_amqp. Wraps AMQP (RabbitMQ)
-  publishes and consumer messages in PRODUCER/CONSUMER spans following OTel
-  messaging semconv.
+  OpenTelemetry instrumentation for dart_amqp by Dartastic.io. Adds standard
+  OpenTelemetry observability to applications that use dart_amqp.
 version: 0.2.2-wip
 repository: https://github.com/dartastic/otel_amqp
 homepage: https://dartastic.io
